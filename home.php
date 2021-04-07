@@ -64,7 +64,7 @@ function allocateResource($allocatedResName, $allocTaskID)
   global $conn, $errors, $messages;
   $resID = getResID($allocatedResName);
   if ($resID != -1) {
-    $resultQuery = mysqli_query($conn, "INSERT INTO resalloc(resource_id, task_id, resource_name) VALUES('$resID','$allocTaskID','$allocatedResName')");
+    $resultQuery = mysqli_query($conn, "INSERT INTO resalloc(resource_id, task_id) VALUES('$resID','$allocTaskID')");
     if ($resultQuery) {
       $messages['taskAlloc'] = "Resource with name '". $allocatedResName . "' has been allocated to task with ID: " . $allocTaskID;
     } else {
