@@ -1,0 +1,67 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@400;700&display=swap');
+.nav-btn{
+margin-right: 10px;
+}
+.nav-link{
+    font-size: 1.3em;
+    margin-left: 1.5em;
+}
+.nav-project{
+    font-size: 1.6em !important;
+    font-style: italic;
+    margin-left: 1em;
+
+}
+.container-fluid{
+     margin-top: 1.5em;
+    /* margin-left: 2.5em !important; */
+}
+.form-add{
+    margin-top: 2em;
+}
+.form-group{
+    margin-right: 0.5em;
+}
+/* .table-project{
+    width: 90% !important;
+} */
+
+.project-welcome{
+    font-family: 'Lexend', sans-serif;
+    font-weight: 100;
+    margin-top: 5em;
+    text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 2px 2px 0 #000;
+}
+.project-welcome p{
+    font-size: 20px;
+    font-weight: 700;
+    text-shadow:-0.5px -0.5px #000, 0.5px -0.5px #000, -0.5px 0.5px #000, 0.5px 0.5px #000;
+}
+.project-body{
+    background-image: url('imgs/projects-background.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover; 
+    padding-bottom: 86px;
+    color: white;
+    font-family: 'Lexend', sans-serif;
+    
+
+}
+.project-body table{
+    color: white !important;
+    text-shadow:-0.5px -0.5px #000, 0.5px -0.5px #000, -0.5px 0.5px #000, 0.5px 0.5px #000;
+}
+label{
+    margin-right:0.5em;
+}
+.project-body label{
+    margin-right:0.5em;
+    text-shadow:-0.5px -0.5px #000, 0.5px -0.5px #000, -0.5px 0.5px #000, 0.5px 0.5px #000;
+}
+.up-footer{
+    padding-bottom:80px;
+}
+
