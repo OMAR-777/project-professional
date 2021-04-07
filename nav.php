@@ -34,7 +34,7 @@ function printNavbar($active,$pid,$pname){
         </li>';
         echo ' </ul>
       <form class="form-inline my-2 my-lg-0">
-        <a class="btn btn-outline-danger nav-btn" href="projects.php"><i class="fas fa-sign-out-alt"></i> Exit project</a>
+        <a class="btn btn-outline-danger nav-btn" href="index.php"><i class="fas fa-sign-out-alt"></i> Exit project</a>
       </form>
     </div>
   </nav>';

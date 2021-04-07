@@ -2,13 +2,13 @@
 require_once("config/db.php");
 
 if (!(isset($_GET['pID']) && isset($_GET['pName']))) {
-    header('location: projects.php');
+    header('location: index.php');
 } else {
     if (ProjectIDNotExist($_GET['pID'])) {
-        header('location: projects.php');
+        header('location: index.php');
     }
     if (ProjectNameNotExist($_GET['pName'])) {
-        header('location: projects.php');
+        header('location: index.php');
     }
 }
 $projectID = $_GET['pID'];

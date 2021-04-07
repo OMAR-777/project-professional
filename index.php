@@ -107,7 +107,7 @@ function printProjects()
               <td>" . $row['name'] . "</td>
               <td>
               <a class='btn btn-sm btn-success' href='home.php?pID=" . $row['id'] . "&pName=" . $row['name'] . "'><i class='fas fa-door-open'></i> Enter</a>
-              <form class='d-inline' action='projects.php' method='post'>
+              <form class='d-inline' action='index.php' method='post'>
               <button class='btn btn-delete btn-danger btn-sm' type='submit' name='deleteProject' value='" . $row['id'] . "'><i class='fas fa-trash'></i> Delete</button></form></td>
               </td>
             </tr>";
@@ -164,7 +164,7 @@ function printProjects()
             <?php printErrors();
                   printMessages();
             ?>
-            <form class="form-inline" action="projects.php" method="post">
+            <form class="form-inline" action="index.php" method="post">
                 <div class="form-group">
                     <label class="font-weight-bold">Enter Project name: </label>
                     <input type="text" class="form-control" id="text" placeholder="Project name" name="projectName" required>
