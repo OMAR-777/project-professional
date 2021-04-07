@@ -229,7 +229,11 @@ function getTaskRes($taskID)
   $rowsCount = mysqli_num_rows($resultQuery);
   if ($rowsCount != 0) {
     $row = mysqli_fetch_assoc($resultQuery);
-    return $row['resource_name'];
+    $resID=$row['resource_id'];
+    $resultQuery = mysqli_query($conn, "SELECT * FROM resource WHERE id='$resID'");
+    $rowRes=mysqli_fetch_assoc($resultQuery);
+    return $rowRes['name'];
+
   }
   return '-';
 }

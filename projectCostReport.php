@@ -98,7 +98,7 @@ function printTasksReport()
             <td>" . $duration . " days</td>
             <td>" . $row['start'] . "</td>
             <td>" . $row['finish'] . "</td>
-            <td>" .$resAllocRow['resource_name']. "</td>
+            <td>" .$resRow['name']. "</td>
             <td>" .$totalCost. "</td>
           </tr>";
                 $totalDuration += $duration;

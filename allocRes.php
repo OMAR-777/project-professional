@@ -47,7 +47,10 @@ function getResAllocated($taskID)
     $numRows = mysqli_num_rows($resultQuery);
     if ($numRows != 0) {
         $row = mysqli_fetch_assoc($resultQuery);
-        return $row;
+        $resID=$row['resource_id'];
+        $resultQuery = mysqli_query($conn, "SELECT * FROM resource WHERE id='$resID'");
+        $rowRes=mysqli_fetch_assoc($resultQuery);
+        return $rowRes;
     }
     return null;
 }
@@ -82,7 +85,7 @@ function printTasksReport()
             <td>" . $duration . " days</td>
             <td>" . $row['start'] . "</td>
             <td>" . $row['finish'] . "</td>
-            <td>" .$resRow['resource_name']. "</td>
+            <td>" .$resRow['name']. "</td>
           </tr>";
                 $totalDuration += $duration;
                 $nAlloc++;
