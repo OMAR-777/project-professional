@@ -150,7 +150,7 @@ function printProjects()
     <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
 
-    <title>Document</title>
+    <title>Project Professional</title>
 </head>
 
 <body class="project-body text-center">
