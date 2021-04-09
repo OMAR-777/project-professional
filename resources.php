@@ -232,7 +232,7 @@ function printRes()
                     <input type="text" class="form-control" id="text" placeholder="Resource name" name="resName" required>
                 </div>
                 <div class="form-group">
-                    <label for="sel1">Type:</label>
+                    <label class="font-weight-bold">Type:</label>
                     <select class="form-control" name="resType" required>
                         <option>Work</option>
                         <option>Material</option>
