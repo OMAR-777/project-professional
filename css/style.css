@@ -40,6 +40,17 @@ margin-right: 10px;
     text-shadow:-0.5px -0.5px #000, 0.5px -0.5px #000, -0.5px 0.5px #000, 0.5px 0.5px #000;
 }
 .project-body{
+    background-image: url('/img/projects-background.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover; 
+    padding-bottom: 86px;
+    color: white;
+    font-family: 'Lexend', sans-serif;
+    
+
+}
+.auth-body{
     background-image: url('/imgs/projects-background.png');
     background-repeat: no-repeat;
     background-attachment: fixed;

@@ -155,7 +155,6 @@ function printProjects()
 
 <body class="project-body text-center">
     <div class="container">
-
         <div class="project-welcome">
             <h1 class="font-weight-bold display-3">Welcome to <br>The Project Professional</h1>
             <p>Create or select a Project from the list down below to manage tasks and resources and much more!</p>
