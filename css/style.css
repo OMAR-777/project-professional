@@ -1,6 +1,24 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@400;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courgette&family=Staatliches&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courgette&family=Major+Mono+Display&family=Staatliches&display=swap');
+
+
+.project-professional-logo{
+    font-family: 'Staatliches';
+    text-align: left;
+    border-left: solid 0.05em rgb(0, 255, 179);
+    border-bottom: solid 0.05em rgb(0, 255, 179);
+    padding: 0.05em;
+    width: fit-content;
+ 
+    line-height: 80% !important;
+    color: rgb(0, 255, 179);
+}
 .nav-btn{
 margin-right: 10px;
 }

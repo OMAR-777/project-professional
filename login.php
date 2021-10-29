@@ -25,7 +25,8 @@ if (isset($_SESSION['id'])) {
         <div class="row p-4">
             <div class="col-md-6 offset-md-3 form-div">
             <form action="login.php" method="post" class="">
-                    <h1 class="text-center">Sign in</h1>
+                    <h1 class="mx-auto project-professional-logo">Project <br> Professional</h1>
+                    <h2 class="text-center mb-3">Sign in</h2>
 
                     <?php if (count($errors) > 0) : ?>
                         <div class="alert alert-danger">

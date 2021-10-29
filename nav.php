@@ -3,6 +3,7 @@ function printNavbar($active,$pid,$pname){
     $par='?pID='.$pid.'&pName='.$pname.'';
     echo '
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-light">
+    <div class="navbar-brand m-0"><span class="project-professional-logo">PP</span></div>
     <div class="navbar-brand nav-project"><?php echo $projectName; ?>'.$pname.' project</div>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -45,6 +46,7 @@ function printFooter($pid,$pname){
     <!-- Grid container -->
     <div class="container p-4">
       <!--Grid row-->
+      <h1 class="mx-auto project-professional-logo mb-3">Project <br> Professional</h1>
       <div class="row">
         <!--Grid column-->
         <div class="col-sm-4">
