@@ -1,8 +1,18 @@
 <?php
-require_once("config/db.php");
+
+require_once("controllers/authController.php");
+if (!isset($_SESSION['id'])) {
+    header('location: login.php?errorSession=Please sign in again!');
+    exit(); //stop execution
+}
 
 $errors = array();
+if(isset($_GET['projAuthError'])){
+    $errors['getError']='Error: user not authorized to project';
+}
+
 $messages = array();
+$userID=$_SESSION['id'];
 // if(isset($_POST['btn-enter'])){
 //     $pName=$_POST['btn-enter'];
 //     $_SESSION['pName']=$pName;
@@ -46,8 +56,9 @@ function insertProject($name)
     global $conn;
     global $errors;
     global $messages;
+    global $userID;
 
-    $taskQuery = "INSERT INTO project(name) VALUES('$name')";
+    $taskQuery = "INSERT INTO project(name,user_id) VALUES('$name','$userID')";
     $resultTask = mysqli_query($conn, $taskQuery);
     if ($resultTask == true) {
         $messages['projectInsert'] = 'Project added successfully!';
@@ -58,7 +69,8 @@ function insertProject($name)
 function checkNameAvailable($name)
 {
     global $conn;
-    $nameQuery = "SELECT * FROM project WHERE name=? LIMIT 1";
+    global $userID;
+    $nameQuery = "SELECT * FROM project WHERE name=? AND user_id=$userID LIMIT 1";
     $stmt = $conn->prepare($nameQuery);
     $stmt->bind_param('s', $name); //s- string , add email instead of ?
     $stmt->execute();
@@ -96,7 +108,8 @@ function printMessages()
 function printProjects()
 {
     global $conn;
-    $sqlProject = "SELECT * FROM project";
+    global $userID;
+    $sqlProject = "SELECT * FROM project WHERE user_id='$userID'";
     $result = mysqli_query($conn, $sqlProject);
     $num = mysqli_num_rows($result);
     if ($num != 0) {
@@ -156,8 +169,10 @@ function printProjects()
 <body class="project-body text-center">
     <div class="container">
         <div class="project-welcome">
-            <h1 class="font-weight-bold display-3">Welcome to <br>The Project Professional</h1>
+            <h1 class="font-weight-bold display-3">The Project Professional</h1>
             <p>Create or select a Project from the list down below to manage tasks and resources and much more!</p>
+            <h4 class="mr-2"> Welcome, <?php echo $_SESSION['username']; ?>!! 
+            <a href="index.php?logout=1" class="btn btn-md btn-danger"><i class="fas fa-sign-out-alt"></i> Log out</a></h4>
         </div>
         <div class="form-add col-sm-8 offset-2">
             <?php printErrors();
@@ -165,14 +180,14 @@ function printProjects()
             ?>
             <form class="form-inline" action="index.php" method="post">
                 <div class="form-group">
-                    <label class="font-weight-bold">Enter Project name: </label>
+                    <label class="font-weight-bold mr-2">Enter Project name: </label>
                     <input type="text" class="form-control" id="text" placeholder="Project name" name="projectName" required>
                 </div>
                 <button type="submit" class="btn btn-success"><i class="fas fa-plus"></i> Create Project</button>
             </form>
         </div>
         <br>
-        <table class="table col-sm-8 offset-2">
+        <table class="table col-sm-8 offset-2 text-white">
             <thead>
                 <tr>
                     <th>ID</th>

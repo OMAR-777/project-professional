@@ -1,5 +1,9 @@
 <?php
-require_once("config/db.php");
+require_once("controllers/authController.php");
+if (!isset($_SESSION['id'])) {
+    header('location: login.php?errorSession=Please sign in again!');
+    exit(); //stop execution
+}
 
 if (!(isset($_GET['pID']) && isset($_GET['pName']))) {
     header('location: index.php');
@@ -10,6 +14,9 @@ if (!(isset($_GET['pID']) && isset($_GET['pName']))) {
     if (ProjectNameNotExist($_GET['pName'])) {
         header('location: index.php');
     }
+    if (userNotAuthorizedToProject($_GET['pID'])) {
+        header('location: index.php?projAuthError=Error: user not authorized to project');
+      }
 }
 $projectID = $_GET['pID'];
 $projectName = $_GET['pName'];

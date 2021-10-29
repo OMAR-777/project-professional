@@ -2,7 +2,7 @@
 function printNavbar($active,$pid,$pname){
     $par='?pID='.$pid.'&pName='.$pname.'';
     echo '
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-light">
     <div class="navbar-brand nav-project"><?php echo $projectName; ?>'.$pname.' project</div>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -33,9 +33,8 @@ function printNavbar($active,$pid,$pname){
           </div>
         </li>';
         echo ' </ul>
-      <form class="form-inline my-2 my-lg-0">
+        <span class="mr-3">Welcome, <i class="fas fa-user"></i> '.$_SESSION["username"].'</span>
         <a class="btn btn-outline-danger nav-btn" href="index.php"><i class="fas fa-sign-out-alt"></i> Exit project</a>
-      </form>
     </div>
   </nav>';
 

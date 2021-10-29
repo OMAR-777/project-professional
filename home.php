@@ -1,14 +1,21 @@
 <?php
-require_once("config/db.php");
+require_once("controllers/authController.php");
+if (!isset($_SESSION['id'])) {
+    header('location: login.php?errorSession=Please sign in again!');
+    exit(); //stop execution
+}
 
 if (!(isset($_GET['pID']) && isset($_GET['pName']))) {
   header('location: index.php');
 } else {
   if (ProjectIDNotExist($_GET['pID'])) {
-    header('location: index.php');
+    header('location: index.php?error=Error: project not found');
   }
   if (ProjectNameNotExist($_GET['pName'])) {
-    header('location: index.php');
+    header('location: index.php?error=Error: project not found');
+  }
+  if (userNotAuthorizedToProject($_GET['pID'])) {
+    header('location: index.php?projAuthError=Error: user not authorized to the project');
   }
 }
 $projectID = $_GET['pID'];
@@ -182,11 +189,12 @@ function ProjectNameNotExist($name)
 function ProjectIDNotExist($id)
 {
   global $conn;
-  $nameQuery = mysqli_query($conn, "SELECT * FROM project WHERE id='$id' LIMIT 1");
-  $nameCount = mysqli_num_rows($nameQuery);
-  if ($nameCount == 0) {
+  $pQuery = mysqli_query($conn, "SELECT * FROM project WHERE id='$id' LIMIT 1");
+  $pCount = mysqli_num_rows($pQuery);
+  if ($pCount == 0) {
     return true;
   } else {
+    $errors['projID']="ERROR: Project does not exist";
     return false;
   }
 }

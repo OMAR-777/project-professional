@@ -16,19 +16,18 @@ if (isset($_SESSION['id'])) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/style.css">
     <title>Login | Project Professional</title>
     <link rel="icon" href="imgs/logo/quizzit-icon.png">
 </head>
 
-<body>
-    <div class="auth-body container">
-        <div class="row">
-            <div class="col-md-4 offset-md-4 form-div">
-                <form action="signup.php" method="post">
+<body class="auth-body">
+    <div class="container">
+        <div class="row p-4">
+            <div class="col-md-6 offset-md-3 form-div">
+                <form action="register.php" method="post">
                     <!-- logo -->
-                    <img class="logo-auth" src="imgs/logo/auth-logo.png">
-                    <h3 class="text-center">Register</h3>
+                    <h1 class="text-center">Register</h1>
 
                     <?php if (count($errors) > 0) : ?>
                         <div class="alert alert-danger">

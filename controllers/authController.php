@@ -69,9 +69,9 @@ if (isset($_POST['signup-btn'])) {
         $token = bin2hex(random_bytes(50)); // unique random string of length 100
         $verified = false;
 
-        $sql = "INSERT INTO users (username, email, verified, token, password) VALUES (?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO users(email, username, password) VALUES (?, ?, ?)";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param('ssbss', $username, $email, $verified, $token, $password); //string string boolean.... 
+        $stmt->bind_param('sss', $email, $username, $password); //string string boolean.... 
         if ($stmt->execute()) {
             //login user
             $user_id = $conn->insert_id; // get the last inserted id from conn object
@@ -86,11 +86,12 @@ if (isset($_POST['signup-btn'])) {
             //flash message
             $_SESSION['message'] = "You are now logged in";
             $_SESSION['alert-class'] = "alert-success";
+           
             header('location: index.php');
             exit(); // not execute any other thing from here
-
         } else {
             $errors['db_error'] = "Database error: failed to register";
+  
         }
     }
 }
@@ -108,9 +109,9 @@ if (isset($_POST['login-btn'])) {
         $errors['password'] = "Password required";
     }
     if (count($errors) === 0) {
-        $sql = "SELECT * FROM users WHERE (email=? OR username=?) AND EXTERNAL_TYPE IS NULL LIMIT 1";
+        $sql = "SELECT * FROM users WHERE email=? OR username=? LIMIT 1";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param('ss', $username, $username); //user might enter either email or username
+        $stmt->bind_param('ss',$username, $username); //user might enter either email or username
         $stmt->execute();
         $result = $stmt->get_result();
         $user = $result->fetch_assoc(); //return a user full ROW with * coloumns as an associative array
@@ -139,8 +140,6 @@ if (isset($_GET['logout'])) {
     unset($_SESSION['id']);
     unset($_SESSION['username']);
     unset($_SESSION['email']);
-    unset($_SESSION['verified']);
-    unset($_SESSION['avatar']);
 
     header('location: login.php?loggedOut=We hope to see you again ❤');
     exit();
@@ -150,9 +149,18 @@ function settingUserSession($user)
     $_SESSION['id'] = $user['id'];
     $_SESSION['username'] = $user['username'];
     $_SESSION['email'] = $user['email'];
-    $_SESSION['verified'] = $user['verified'];
-    $_SESSION['avatar'] = $user['avatar'];
 }
+
+function userNotAuthorizedToProject($id){
+    global $conn;
+    $pQuery = mysqli_query($conn, "SELECT user_id FROM project WHERE id='$id' LIMIT 1");
+    $row = mysqli_fetch_assoc($pQuery);
+    if ($row['user_id'] != $_SESSION['id']) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
 //verify user by token
 function verifyUser($token)
