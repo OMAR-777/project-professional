@@ -264,7 +264,7 @@ function printRes()
             </form>
         </div>
         <hr>
-        <div class="table-project col-sm-10 offset-1">
+        <div class="table-project col-sm-10 offset-1" style="overflow-x: auto;">
             <table id="example" class="table table-striped table-bordered table-project" style="width:100%">
                 <thead>
                     <tr>

@@ -129,7 +129,7 @@ function printResReport()
         <h1 class="text-center">Resources Report</h1>
         <div class="form-add col-sm-10 offset-1">
 
-            <div class="table-project col-sm-10 offset-1">
+            <div class="table-project col-sm-10 offset-1" style="overflow-x: auto;">
             <button class="btn btn-info" onclick="window.print()"><i class="fas fa-print"></i> print this page</button>
                 <table id="example" class="table table-striped table-bordered table-project" style="width:100%">
                     <thead>

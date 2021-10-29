@@ -187,6 +187,7 @@ function printProjects()
             </form>
         </div>
         <br>
+        <div style="overflow-x: auto;">
         <table class="table col-sm-8 offset-2 text-white">
             <thead>
                 <tr>
@@ -203,6 +204,7 @@ function printProjects()
                 ?>
             </tbody>
         </table>
+        </div>
 
     </div>
 
