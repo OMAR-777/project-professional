@@ -228,7 +228,7 @@ function printRes()
 
     <div class="container-fluid up-footer">
         <h1 class="text-center">Resources</h1>
-        <div class="form-add col-sm-10 offset-1">
+        <div class="form-add col-sm-10 offset-sm-1">
             <?php
             printErrors();
             printMessages();
@@ -264,7 +264,7 @@ function printRes()
             </form>
         </div>
         <hr>
-        <div class="table-project col-sm-10 offset-1" style="overflow-x: auto;">
+        <div class="table-project col-sm-10 offset-sm-1" style="overflow-x: auto;">
             <table id="example" class="table table-striped table-bordered table-project" style="width:100%">
                 <thead>
                     <tr>

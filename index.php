@@ -174,7 +174,7 @@ function printProjects()
             <h4 class="mr-2"> Welcome, <?php echo $_SESSION['username']; ?>!! 
             <a href="index.php?logout=1" class="btn btn-md btn-danger"><i class="fas fa-sign-out-alt"></i> Log out</a></h4>
         </div>
-        <div class="form-add col-sm-8 offset-2">
+        <div class="form-add col-sm-8 offset-sm-2">
             <?php printErrors();
                   printMessages();
             ?>
@@ -188,7 +188,7 @@ function printProjects()
         </div>
         <br>
         <div style="overflow-x: auto;">
-        <table class="table col-sm-8 offset-2 text-white">
+        <table class="table col-sm-8 offset-sm-2 text-white">
             <thead>
                 <tr>
                     <th>ID</th>

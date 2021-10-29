@@ -332,7 +332,8 @@ function printTasks()
 
   <div class="container-fluid up-footer">
     <h1 class="text-center">Tasks</h1>
-    <div class="form-add col-sm-10 offset-1">
+   
+      <div class="form-add col-md-10 offset-sm-1">
       <?php
       printErrors();
       printMessages();
@@ -352,9 +353,11 @@ function printTasks()
         </div>
         <button type="submit" class="btn btn-success"><i class="fas fa-plus"></i> Add Task</button>
       </form>
+      <hr>
+    
     </div>
-    <hr>
-    <div class="table-project col-sm-10 offset-1" style="overflow-x: auto;">
+    
+    <div class="table-project col-sm-10 offset-sm-1" style="overflow-x: auto;">
       <table id="example" class="table table-striped table-bordered table-project" style="width:100%">
         <thead>
           <tr>
