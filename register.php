@@ -18,7 +18,6 @@ if (isset($_SESSION['id'])) {
 
     <link rel="stylesheet" href="css/style.css">
     <title>Login | Project Professional</title>
-    <link rel="icon" href="imgs/logo/quizzit-icon.png">
 </head>
 
 <body class="auth-body">
